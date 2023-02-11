@@ -1,1 +1,12 @@
-<p>spinner-button works!</p>
+<button #mainSpinnerButton class="ng-spinner-button" [style.backgroundColor]="config.backgroundColor"
+    [style.color]="config.textColor" [class.ng-spinner-button-disabled]="config.disabled || config.loading"
+    [ngClass]="createButtonClasses()">
+    <div [class.content-hidden]="config.loading" #spinnerButtonContentWrapper>
+        <ng-content></ng-content>
+    </div>
+    <span [class.content-hidden]="config.loading" *ngIf="spinnerButtonContentWrapper.childNodes.length == 0">
+        {{config.text}}
+    </span>
+    <ng-spinner class="spinner"
+        [config]="{loading: config.loading, color: config.backgroundColor, size: getSpinnerSize(), type: 'spinner'}"></ng-spinner>
+</button>

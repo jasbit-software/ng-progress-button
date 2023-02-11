@@ -1,0 +1,18 @@
+<ng-container *ngIf="config.loading">
+    <div *ngIf="config.type == 'spinner'" class="lds-ring" [ngStyle]="ringStyling">
+        <div [ngStyle]="spinnerDivStyling"></div>
+        <div [ngStyle]="spinnerDivStyling"></div>
+        <div [ngStyle]="spinnerDivStyling"></div>
+        <div [ngStyle]="spinnerDivStyling"></div>
+    </div>
+    <div *ngIf="config.type == 'dots'" class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div *ngIf="config.type == 'ripple'" class="lds-ripple">
+        <div></div>
+        <div></div>
+    </div>
+</ng-container>

@@ -1,0 +1,10 @@
+<h1>NG Progress Button test project</h1>
+
+<button (click)="pbConfig.size = 'small'">small</button>
+<button (click)="pbConfig.size = 'normal'">normal</button>
+<button (click)="pbConfig.size = 'large'">large</button>
+<br><br>
+
+<ng-spinner-button [config]="pbConfig" (onClick)="onButtonClick($event)"></ng-spinner-button>
+
+<!-- <ng-spinner [config]="{color: '#5C739D', loading: true, size: 60}"></ng-spinner> -->

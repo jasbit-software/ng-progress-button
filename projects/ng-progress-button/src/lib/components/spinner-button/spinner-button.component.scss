@@ -1,0 +1,54 @@
+.ng-spinner-button {
+    border-radius: 4px;
+    width: fit-content;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    font-family: Roboto;
+    transition: all 300ms ease-in-out;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.ng-spinner-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: translate(-0.2px, -1px);
+}
+
+.small-button {
+    padding: 4px 6px;
+    font-size: 12px;
+}
+
+.normal-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    // font-weight: 500;
+}
+
+.large-button {
+    padding: 12px 22px;
+    font-size: 22px;
+}
+
+.ng-spinner-button-disabled {
+    cursor: default;
+    background-color: #0000001f !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ng-spinner-button-disabled:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transform: none;
+}
+
+.spinner {
+    position: absolute;
+    z-index: 1;
+    margin-top: 4px;
+}
+
+.content-hidden {
+    visibility: hidden;
+}
