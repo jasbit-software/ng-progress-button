@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "publish": "cd projects/ng-progress-button && ng build && cd .. && cd .. && cd dist/ng-progress-button && npm publish"
   },
   "private": true,
   "dependencies": {

@@ -15,7 +15,7 @@ export class AppComponent {
     textColor: "white",
     size: "normal",
     customClass: "custom-button",
-    spinnerType: "ripple"
+    spinnerType: "spinner"
   };
 
   onButtonClick(event: any) {

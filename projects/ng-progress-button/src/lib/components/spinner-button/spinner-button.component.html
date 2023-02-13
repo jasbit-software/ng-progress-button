@@ -4,7 +4,7 @@
     <div [class.content-hidden]="config.loading" #spinnerButtonContentWrapper>
         <ng-content></ng-content>
     </div>
-    <span [class.content-hidden]="config.loading" *ngIf="spinnerButtonContentWrapper.childNodes.length == 0">
+    <span class="ng-spinner-button-text" [class.content-hidden]="config.loading" *ngIf="spinnerButtonContentWrapper.childNodes.length == 0">
         {{config.text}}
     </span>
     <ng-spinner class="spinner"
