@@ -6,10 +6,11 @@
         <button (click)="pbConfig.size = 'small'">small</button>
         <button (click)="pbConfig.size = 'normal'">normal</button>
         <button (click)="pbConfig.size = 'large'">large</button>
+        <button (click)="disabled = !disabled">Toggle disable</button>
     </div>
     <br>
 
-    <ng-spinner-button [config]="pbConfig" (onClick)="onButtonClick($event)"></ng-spinner-button>
+    <ng-spinner-button [config]="pbConfig" (onClick)="onButtonClick($event)" [disabled]="disabled"></ng-spinner-button>
     <br>
     <h2>Spinners</h2>
     <ng-spinner [config]="{color: '#5C739D', loading: true, size: 60, type: 'spinner'}"></ng-spinner>

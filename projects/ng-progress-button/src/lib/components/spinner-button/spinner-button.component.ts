@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
 import { SpinnerButtonConfig } from './spinner-button-config';
 
 @Component({
@@ -6,12 +6,13 @@ import { SpinnerButtonConfig } from './spinner-button-config';
   templateUrl: './spinner-button.component.html',
   styleUrls: ['./spinner-button.component.scss']
 })
-export class SpinnerButtonComponent implements OnInit {
+export class SpinnerButtonComponent implements OnInit, OnChanges {
 
   @ViewChild("spinnerButtonContentWrapper") spinnerButtonContentWrapper: HTMLElement;
   @ViewChild("mainSpinnerButton") mainSpinnerButton: ElementRef;
 
   @Input("config") config: SpinnerButtonConfig = new SpinnerButtonConfig();
+  @Input("disabled") disabled: boolean = false;
 
   @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
@@ -21,7 +22,12 @@ export class SpinnerButtonComponent implements OnInit {
 
   ngOnInit(): void {
     this.config.size = this.getConfigSize();
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['disabled'] && !changes['disabled'].firstChange) {
+      this.config.disabled = changes['disabled'].currentValue;
+    }
   }
 
   @HostListener('click', ['$event'])

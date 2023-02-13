@@ -9,6 +9,8 @@ import { SpinnerButtonConfig } from 'projects/ng-progress-button/src/public-api'
 export class AppComponent {
   title = 'demo-project';
 
+  disabled: boolean = false;
+
   pbConfig: SpinnerButtonConfig = {
     text: "Open dossier",
     backgroundColor: "#5C739D",

@@ -34,7 +34,6 @@ export class SpinnerComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.config);
     this.setStyling();
   }
 
