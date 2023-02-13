@@ -1,6 +1,6 @@
 {
   "name": "@jasbit-software/ng-progress-button",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^14.2.0 || ^15.0.0 || ^16.0.0",
     "@angular/core": "^14.2.0 || ^15.0.0 || ^16.0.0"
