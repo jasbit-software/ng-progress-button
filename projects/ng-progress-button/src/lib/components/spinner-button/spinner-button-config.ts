@@ -6,4 +6,5 @@ export class SpinnerButtonConfig {
     loading?: boolean = false;
     customClass?: string;
     disabled?: boolean = false;
+    spinnerType?: string = "spinner";
 }

@@ -43,15 +43,40 @@ export class SpinnerButtonComponent implements OnInit {
   }
 
   getSpinnerSize(): number {
-    switch (this.config.size) {
-      case "small":
-        return 12;
-      case "normal":
+    switch (this.config.spinnerType) {
+      case "spinner":
       default:
-        return 24;
-      case "large":
-        return 40;
+        switch (this.config.size) {
+          case "small":
+            return 10;
+          case "normal":
+          default:
+            return 20;
+          case "large":
+            return 36;
+        }
+      case "ripple":
+        switch (this.config.size) {
+          case "small":
+            return 18;
+          case "normal":
+          default:
+            return 36;
+          case "large":
+            return 60;
+        }
+      case "dots":
+        switch (this.config.size) {
+          case "small":
+            return 24;
+          case "normal":
+          default:
+            return 48;
+          case "large":
+            return 80;
+        }
     }
+
   }
 
   createButtonClasses(): string {

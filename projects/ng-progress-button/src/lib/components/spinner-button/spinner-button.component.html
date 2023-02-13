@@ -8,5 +8,5 @@
         {{config.text}}
     </span>
     <ng-spinner class="spinner"
-        [config]="{loading: config.loading, color: config.backgroundColor, size: getSpinnerSize(), type: 'spinner'}"></ng-spinner>
+        [config]="{loading: config.loading, color: config.backgroundColor, size: getSpinnerSize(), type: this.config.spinnerType? this.config.spinnerType : 'spinner'}"></ng-spinner>
 </button>

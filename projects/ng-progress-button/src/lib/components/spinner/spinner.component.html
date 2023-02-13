@@ -5,14 +5,14 @@
         <div [ngStyle]="spinnerDivStyling"></div>
         <div [ngStyle]="spinnerDivStyling"></div>
     </div>
-    <div *ngIf="config.type == 'dots'" class="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div *ngIf="config.type == 'dots'" class="lds-ellipsis" [ngStyle]="ellipsisStyling">
+        <div [ngStyle]="ellipsisDiv1And2Styling"></div>
+        <div [ngStyle]="ellipsisDiv1And2Styling"></div>
+        <div [ngStyle]="ellipsisDiv3Styling"></div>
+        <div [ngStyle]="ellipsisDiv4Styling"></div>
     </div>
-    <div *ngIf="config.type == 'ripple'" class="lds-ripple">
-        <div></div>
-        <div></div>
+    <div *ngIf="config.type == 'ripple'" class="lds-ripple" [ngStyle]="rippleStyling">
+        <div [ngStyle]="rippleDivStyling"></div>
+        <div [ngStyle]="rippleDivStyling"></div>
     </div>
 </ng-container>

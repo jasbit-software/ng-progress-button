@@ -14,11 +14,11 @@ export class AppComponent {
     backgroundColor: "#5C739D",
     textColor: "white",
     size: "normal",
-    customClass: "custom-button"
+    customClass: "custom-button",
+    spinnerType: "ripple"
   };
 
   onButtonClick(event: any) {
-    console.log(event);
     this.pbConfig.loading = true;
     setTimeout(() => {
       this.pbConfig.loading = false;
