@@ -18,6 +18,7 @@ export class AppComponent {
   };
 
   onButtonClick(event: any) {
+    console.log(event);
     this.pbConfig.loading = true;
     setTimeout(() => {
       this.pbConfig.loading = false;
