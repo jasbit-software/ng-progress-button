@@ -14,6 +14,7 @@ export class AppComponent {
   pbConfig: SpinnerButtonConfig = {
     text: "Open dossier",
     backgroundColor: "#5C739D",
+    // textColor: "#5C739D",
     textColor: "white",
     size: "normal",
     customClass: "custom-button",

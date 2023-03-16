@@ -12,7 +12,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     CommonModule,
-    NgProgressButtonModule
+    NgProgressButtonModule.forRoot({
+      backgroundColor: 'red',
+      textColor: 'blue'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

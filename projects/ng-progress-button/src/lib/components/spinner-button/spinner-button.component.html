@@ -1,10 +1,15 @@
-<button #mainSpinnerButton class="ng-spinner-button" [style.backgroundColor]="config.backgroundColor"
-    [style.color]="config.textColor" [class.ng-spinner-button-disabled]="config.disabled || config.loading"
-    [ngClass]="createButtonClasses()">
+<button #mainSpinnerButton class="ng-spinner-button"
+    [style.backgroundColor]="['raised', 'flat'].includes(config.type) ? config.backgroundColor : 'white'"
+    [style.borderColor]="['stroked'].includes(config.type) ? config.backgroundColor : ''"
+    [style.borderWidth]="['stroked'].includes(config.type) ? '1px' : '0px'"
+    [style.borderStyle]="['stroked'].includes(config.type) ? 'solid': ''" [style.color]="config.textColor"
+    [style.boxShadow]="['flat'].includes(config.type) ? 'none' : ''"
+    [class.ng-spinner-button-disabled]="config.disabled || config.loading" [ngClass]="createButtonClasses()">
     <div [class.content-hidden]="config.loading" #spinnerButtonContentWrapper>
         <ng-content></ng-content>
     </div>
-    <span class="ng-spinner-button-text" [class.content-hidden]="config.loading" *ngIf="spinnerButtonContentWrapper.childNodes.length == 0">
+    <span class="ng-spinner-button-text" [class.content-hidden]="config.loading"
+        *ngIf="spinnerButtonContentWrapper.childNodes.length == 0">
         {{config.text}}
     </span>
     <ng-spinner class="spinner"

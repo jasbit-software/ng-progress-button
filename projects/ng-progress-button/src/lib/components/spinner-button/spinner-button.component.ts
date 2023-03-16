@@ -1,5 +1,5 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
-import { SpinnerButtonConfig } from './spinner-button-config';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Inject, InjectionToken, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
+import { PROGRESS_BUTTON_CONFIG, SpinnerButtonConfig } from './spinner-button-config';
 
 @Component({
   selector: 'ng-spinner-button',
@@ -11,16 +11,24 @@ export class SpinnerButtonComponent implements OnInit, OnChanges {
   @ViewChild("spinnerButtonContentWrapper") spinnerButtonContentWrapper: HTMLElement;
   @ViewChild("mainSpinnerButton") mainSpinnerButton: ElementRef;
 
-  @Input("config") config: SpinnerButtonConfig = new SpinnerButtonConfig();
-  @Input("disabled") disabled: boolean = false;
+  @Input("config") config: SpinnerButtonConfig;
+  
+  @Input("disabled") set SetDisabled(disabled: boolean) {
+    this.config.disabled = disabled;
+  }
 
   @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
   spinnerSize: number;
 
-  constructor() { }
+  constructor(@Inject(PROGRESS_BUTTON_CONFIG) private rootConfig: SpinnerButtonConfig) {
+  }
 
   ngOnInit(): void {
+    this.mergeConfigs(this.config, this.rootConfig);
+    if (!this.config.type) {
+      this.config.type = "raised";
+    }
     this.config.size = this.getConfigSize();
   }
 
@@ -92,4 +100,13 @@ export class SpinnerButtonComponent implements OnInit, OnChanges {
     }
     return c;
   }
+
+  private mergeConfigs(currentConfig: SpinnerButtonConfig, rootConfig: SpinnerButtonConfig): SpinnerButtonConfig {
+    for (const key in rootConfig) {
+      if (currentConfig[key] === undefined) {
+        currentConfig[key] = rootConfig[key];
+      }
+    }
+    return currentConfig;
+  }  
 }

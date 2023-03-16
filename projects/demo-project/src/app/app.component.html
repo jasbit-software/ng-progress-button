@@ -6,11 +6,20 @@
         <button (click)="pbConfig.size = 'small'">small</button>
         <button (click)="pbConfig.size = 'normal'">normal</button>
         <button (click)="pbConfig.size = 'large'">large</button>
+    </div><br>
+    <div>
         <button (click)="disabled = !disabled">Toggle disable</button>
     </div>
     <br>
+    <div>
+        <button (click)="pbConfig.type = undefined; pbConfig.textColor = undefined">Undefined</button>
+        <button (click)="pbConfig.type = 'raised'; pbConfig.textColor = 'white'">raised</button>
+        <button (click)="pbConfig.type = 'stroked'; pbConfig.textColor = '#5C739D'">stroked</button>
+        <button (click)="pbConfig.type = 'flat'; pbConfig.textColor = 'white'">flat</button>
+    </div>
+    <br>
 
-    <ng-spinner-button [config]="pbConfig" (onClick)="onButtonClick($event)" [disabled]="disabled"></ng-spinner-button>
+    <ng-spinner-button [config]="pbConfig" (onClick)="onButtonClick($event)" [disabled]="this.disabled"></ng-spinner-button>
     <br>
     <h2>Spinners</h2>
     <ng-spinner [config]="{color: '#5C739D', loading: true, size: 60, type: 'spinner'}"></ng-spinner>
